@@ -1,0 +1,12 @@
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\bin\Debug\ImageSyncManager.exe.config
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.csprojResolveAssemblyReference.cache
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.ProjectSyncForm.resources
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.Properties.Resources.resources
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.csproj.GenerateResource.Cache
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\bin\Debug\ImageSyncManager.exe
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\bin\Debug\ImageSyncManager.pdb
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.exe
+D:\ajay\sample code\ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.pdb
+C:\Users\ajay\Source\Repos\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\bin\Debug\ImageSyncManager.exe.config
+C:\Users\ajay\Source\Repos\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.exe
+C:\Users\ajay\Source\Repos\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.pdb
