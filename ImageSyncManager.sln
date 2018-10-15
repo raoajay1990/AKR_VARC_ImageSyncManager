@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageSyncManager", "ImageSyncManager\ImageSyncManager.csproj", "{9B2A318C-7C06-4565-A6BF-F94C8931AE5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectSyncWebAPI", "ProjectSyncWebAPI\ProjectSyncWebAPI\ProjectSyncWebAPI.csproj", "{724D6E2F-8D92-44C1-8116-F84440B50D06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9B2A318C-7C06-4565-A6BF-F94C8931AE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B2A318C-7C06-4565-A6BF-F94C8931AE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B2A318C-7C06-4565-A6BF-F94C8931AE5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724D6E2F-8D92-44C1-8116-F84440B50D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724D6E2F-8D92-44C1-8116-F84440B50D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724D6E2F-8D92-44C1-8116-F84440B50D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724D6E2F-8D92-44C1-8116-F84440B50D06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
