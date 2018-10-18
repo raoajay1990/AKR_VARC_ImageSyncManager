@@ -9,12 +9,13 @@ using System.Web.Http;
 
 namespace ProjectSyncWebAPI.Controllers
 {
+    
     public class SyncManagerController : ApiController
     {
         SyncManagerRepository repo = new SyncManagerRepository();
 
         [HttpGet]
-        
+        [Route("api/GetPages")]
         public List<PageViewModel> GetPages()
         {
             return repo.GetPages();
