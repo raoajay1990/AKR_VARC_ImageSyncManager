@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace ProjectSyncWebAPI.Controllers
@@ -19,6 +20,13 @@ namespace ProjectSyncWebAPI.Controllers
         public List<PageViewModel> GetPages()
         {
             return repo.GetPages();
+        }
+
+        [HttpGet]
+        [Route("api/GetPages/pageId")]
+        public async Task<ProjectContentViewModel> GetPageContent(int pageId)
+        {
+            return await repo.GetPageContent(pageId);
         }
     }
 }
