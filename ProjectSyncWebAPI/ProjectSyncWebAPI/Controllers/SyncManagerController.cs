@@ -2,6 +2,7 @@
 using ProjectSyncWebAPI.Repository;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -27,6 +28,13 @@ namespace ProjectSyncWebAPI.Controllers
         public async Task<ProjectContentViewModel> GetPageContent(int pageId)
         {
             return await repo.GetPageContent(pageId);
+        }
+
+        [HttpGet]
+        [Route("api/GetImages/pageId")]
+        public async Task<List<Image>> GetImages(int pageId)
+        {
+            return await repo.GetImagesTest(pageId);
         }
     }
 }

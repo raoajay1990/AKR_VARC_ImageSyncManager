@@ -95,6 +95,40 @@ namespace ProjectSyncWebAPI.Repository
             return images;
         }
 
+        public async Task<List<Image>> GetImagesTest(int pageID)
+        {
+            List<Image> images = new List<Image>();
+            string query = "Select ImageID,ImageName,Image from  Images where PageID=" + pageID;
+            SqlConnection conn = new SqlConnection();
+
+            try
+            {
+                conn.ConnectionString = @"Data Source=AJAY-PC\SQLEXPRESS;Initial Catalog=Practice;Integrated Security=True";
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                DataTable data = new DataTable();
+                data.Load(reader);
+
+                foreach (DataRow row in data.Rows)
+                {
+                    Image Photo = row["Image"] != null ? await GetPhoto(Convert.ToString(row["ImageName"]), (byte[])row["Image"]) : null;
+                    images.Add(Photo);
+                    
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                throw ex;
+            }
+
+            return images;
+        }
+
         public async Task<Image> GetPhoto(string imageName , byte[] image)
         {
             try
@@ -102,12 +136,6 @@ namespace ProjectSyncWebAPI.Repository
                 MemoryStream ms = new MemoryStream(image);
                 Image returnImage = Image.FromStream(ms);
                 return returnImage;
-                //FileStream fs = new FileStream(imageName, FileMode.CreateNew, FileAccess.Write);
-                //fs.Write(image, 0, image.Length);
-                //fs.Flush();
-                //fs.Close();
-                //Image theImage = System.Drawing.Image.FromFile(imageName);
-                //return theImage;
             }
             catch(Exception ex)
             {
