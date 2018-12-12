@@ -6,8 +6,11 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
 
 namespace ProjectSyncWebAPI.Repository
 {
@@ -56,6 +59,12 @@ namespace ProjectSyncWebAPI.Repository
             return content;
         }
 
+        [HttpGet]
+        public HttpResponseMessage Get(int pageID)
+        {
+            return GetImagesNew(pageID);
+        }
+
         public async Task<List<ImageViewModel>> GetImages(int pageID)
         {
             List<ImageViewModel> images = new List<ImageViewModel>();
@@ -93,6 +102,56 @@ namespace ProjectSyncWebAPI.Repository
             }
 
             return images;
+        }
+
+        public HttpResponseMessage GetImagesNew(int pageID)
+        {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            Image[] imagesArray = new Image[10];
+            int index = 0;
+            List<ImageViewModel> images = new List<ImageViewModel>();
+
+            string query = "Select ImageID,ImageName,Image from  Images where PageID=" + pageID;
+            SqlConnection conn = new SqlConnection();
+
+            try
+            {
+                conn.ConnectionString = @"Data Source=AJAY-PC\SQLEXPRESS;Initial Catalog=Practice;Integrated Security=True";
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                DataTable data = new DataTable();
+                data.Load(reader);
+
+                foreach (DataRow row in data.Rows)
+                {
+                    result.Content = new ByteArrayContent((byte[])row["Image"]);
+                    //imagesArray[index] = row["Image"] != null ? await GetPhoto(Convert.ToString(row["ImageName"]), (byte[])row["Image"]) : null;
+
+                    //images.Add(new ImageViewModel()
+                    //{
+                    //    ImageID = row["ImageID"] != null ? Convert.ToInt32(row["ImageID"]) : -1,
+                    //    ImageName = row["ImageName"] != null ? Convert.ToString(row["ImageName"]) : string.Empty,
+                    //    //Photo = row["Image"] != null ? (Image)new Object():null
+                    //    Photo = row["Image"] != null ? await GetPhoto(Convert.ToString(row["ImageName"]), (byte[])row["Image"]) : null
+                    //});
+                }
+
+                conn.Close();
+                
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                result.StatusCode = HttpStatusCode.BadRequest;
+                return result;
+            }
+
+            
         }
 
         public async Task<List<Image>> GetImagesTest(int pageID)

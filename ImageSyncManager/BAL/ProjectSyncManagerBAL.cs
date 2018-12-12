@@ -56,10 +56,12 @@ namespace ImageSyncManager.BAL
                                 if (Path.GetExtension(file) == ".jpg" || Path.GetExtension(file) == ".png")
                                 {
                                     image.ImageName = Path.GetFileName(file);
-                                    image.ImagePath = file;
+                                    //Create A folder for Images , currently the folder resides in localhost but need to move to blob or server based on imPlemetation
+                                    string imagePath = ImagePath(page.PageName, file, image.ImageName);
+                                    image.ImagePath = imagePath;
                                     image.IsActive = true;
                                     image.PageObj = page;
-                                    image.Photo = GetPhoto(file);
+                                    //image.Photo = GetPhoto(file);
                                     image.CreatedDate = DateTime.Today;
 
                                     projSyncManagerDAL.AddImage(image);
@@ -86,7 +88,32 @@ namespace ImageSyncManager.BAL
             }
         }
 
+        public string ImagePath(string directoryName , string source , string imageName)
+        {
+            string dirName = @"D:\ajay\sample code\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\PagesAssets\" + directoryName;
+            if (!Directory.Exists(dirName))
+            {
+                Directory.CreateDirectory(dirName);
+                if (!Directory.Exists(dirName + "/Images"))
+                {
+                    Directory.CreateDirectory(dirName + "/Images");
 
+                    File.Copy(source, dirName + @"\Images\"+imageName);
+                }
+            }
+            else if (!Directory.Exists(dirName + "/Images"))
+            {
+                Directory.CreateDirectory(dirName + "/Images");
+
+                File.Copy(source, dirName + @"\Images\" + imageName );
+            }
+            else
+            {
+                File.Copy(source, dirName + @"\Images\" + imageName);
+            }
+
+            return dirName + @"\Images\" + imageName;
+        }
         public static byte[] GetPhoto(string filePath)
         {
             FileStream stream = new FileStream(

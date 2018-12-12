@@ -1,7 +1,7 @@
 USE [Practice]
 GO
 
-/****** Object:  StoredProcedure [dbo].[procAddImages]    Script Date: 10/14/2018 17:18:55 ******/
+/****** Object:  StoredProcedure [dbo].[procAddImages]    Script Date: 12/12/2018 21:44:10 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -17,7 +17,6 @@ CREATE PROCEDURE [dbo].[procAddImages]
 	-- Add the parameters for the stored procedure here
 	@ImageName nvarchar (20),
 	@ImagePath nvarchar (50),
-	@Image varbinary (max),
 	@PageID int,
 	@IsActive bit,
 	@CreatedDate Date
@@ -28,7 +27,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	Insert into Images(ImageName,ImagePath,Image,PageID,IsActive,CreatedDate) values (@ImageName,@ImagePath,@Image,@PageID,@IsActive,@CreatedDate)
+	Insert into Images(ImageName,ImagePath,PageID,IsActive,CreatedDate) values (@ImageName,@ImagePath,@PageID,@IsActive,@CreatedDate)
 END
 
 GO

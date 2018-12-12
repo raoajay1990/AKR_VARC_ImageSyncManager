@@ -79,7 +79,6 @@ namespace ImageSyncManager.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@ImageName", SqlDbType.NVarChar).Value = image.ImageName;
                 cmd.Parameters.Add("@ImagePath", SqlDbType.NVarChar).Value = image.ImagePath;
-                cmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = image.Photo;
                 cmd.Parameters.Add("@PageID", SqlDbType.Int).Value = image.PageObj.PageID;
                 cmd.Parameters.Add("@IsActive", SqlDbType.Bit).Value = image.IsActive;
                 cmd.Parameters.Add("@CreatedDate", SqlDbType.Date).Value = image.CreatedDate;

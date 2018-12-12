@@ -18,4 +18,3 @@ D:\ajay\sample code\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\obj\D
 D:\ajay\sample code\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.csproj.GenerateResource.Cache
 D:\ajay\sample code\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.exe
 D:\ajay\sample code\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.pdb
-D:\ajay\sample code\raoajay1990\AKR_VARC_ImageSyncManager\ImageSyncManager\obj\Debug\ImageSyncManager.csprojResolveAssemblyReference.cache
